@@ -1,0 +1,20 @@
+name: 'Simple Composite Action'
+description: 'A simple composite action example'
+
+inputs:
+  repo-name:
+    description: 'Repository name'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        repository: ${{ inputs.repo-name }}
+
+    - name: Print repository information
+      run: |
+        echo "Repository Name: ${{ inputs.repo-name }}"
+        echo "Current Branch: ${{ github.ref }}"
