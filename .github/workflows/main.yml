@@ -1,0 +1,15 @@
+name: Example Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run My Composite Action
+        uses: ./.github/actions/my-simple-action.yml
+        with:
+          repo-name: 'my-org/POC-In-Workflow'
